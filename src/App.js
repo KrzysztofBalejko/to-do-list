@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
 import Todos from './components/Todos.js';
-import Header from './components/layout/Header.js'
+import Header from './components/layout/Header.js';
+import AddTodo from './components/AddTodo.js';
 
 class App extends Component {
   state = {
     todos: [
     {
       id: 1,
-      title: 'Walk the dog',
+      title: 'WALK THE DOG',
       completed: false
     },
     {
       id: 2,
-      title: 'Make a bed',
+      title: 'MAKE A BED',
       completed: false
     },
     {
       id: 3,
-      title: 'Cook a dinner',
+      title: 'COOK A DINNER',
       completed: false
     },
    ]
@@ -44,9 +45,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
-        <Todos todos={this.state.todos} markComplete={this.markComplete}
-        deleteTodo={this.deleteTodo}/>
+        <div class="container">
+          <Header />
+          <AddTodo />
+          <Todos todos={this.state.todos} markComplete={this.markComplete}
+          deleteTodo={this.deleteTodo}/>
+        </div>
       </div>
     );
   }
