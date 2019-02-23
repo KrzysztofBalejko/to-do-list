@@ -3,22 +3,23 @@ import './App.css';
 import Todos from './components/Todos.js';
 import Header from './components/layout/Header.js';
 import AddTodo from './components/AddTodo.js';
+import uuid from 'uuid';
 
 class App extends Component {
   state = {
     todos: [
     {
-      id: 1,
+      id: uuid.v4(),
       title: 'WALK THE DOG',
       completed: false
     },
     {
-      id: 2,
+      id: uuid.v4(),
       title: 'MAKE A BED',
       completed: false
     },
     {
-      id: 3,
+      id: uuid.v4(),
       title: 'COOK A DINNER',
       completed: false
     },
@@ -41,13 +42,23 @@ class App extends Component {
     });
   }
 
+  //Adding todo
+  addTodo = (title) => {
+    const newTodo = {
+      id: uuid.v4(),
+      title: title,
+      completed: false
+    }
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  }
+
   render() {
 
     return (
       <div className="App">
-        <div class="container">
+        <div className="container">
           <Header />
-          <AddTodo />
+          <AddTodo addTodo={this.addTodo} />
           <Todos todos={this.state.todos} markComplete={this.markComplete}
           deleteTodo={this.deleteTodo}/>
         </div>
