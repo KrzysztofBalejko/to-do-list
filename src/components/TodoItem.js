@@ -5,18 +5,16 @@ class TodoItem extends Component {
 
   getStyle = () => {
     return {
-      background: '#77DD77',
+      background: '#FF8C00',
       padding: '10px',
       margin: '5px',
-      opacity: '0.7',
+      opacity: '0.9',
       borderBottom: '1px #fff dotted',
       borderTop: '1px #fff dotted',
       textDecoration: this.props.todo.completed ?
       'line-through' : 'none'
     }
   }
-
-
 
   render() {
 
